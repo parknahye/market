@@ -1,0 +1,54 @@
+{
+    "family": "main_server_task_definition",
+    "containerDefinitions": [
+        {
+            "name": "main_server_container",
+            "image": "205360167779.dkr.ecr.ap-northeast-2.amazonaws.com/market:b4baee286736a0e50762aab26a1cfceb18a4f54a",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "name": "market_container-9000-tcp",
+                    "containerPort": 9000,
+                    "hostPort": 9000,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                }
+            ],
+            "essential": true,
+            "environment": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "secrets": [
+                {
+                    "name": "AWS_ACCESS_KEY_ID",
+                    "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:205360167779:secret:secret-dPk9Po:AWS_ACCESS_KEY_ID::"
+                },
+                {
+                    "name": "AWS_SECRET_ACCESS_KEY",
+                    "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:205360167779:secret:secret-dPk9Po:AWS_SECRET_ACCESS_KEY::"
+                }
+            ],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-create-group": "true",
+                    "awslogs-group": "/ecs/market_task_definition",
+                    "awslogs-region": "ap-northeast-2",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            }
+        }
+    ],
+    "taskRoleArn": "arn:aws:iam::477644685304:role/ecsIAM",
+    "executionRoleArn": "arn:aws:iam::477644685304:role/ecsIAM",
+    "networkMode": "awsvpc",
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "1024",
+    "memory": "3072",
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    }
+}
