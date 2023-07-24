@@ -8,9 +8,9 @@ AWS.config.update({
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
   })
   
-  const productModule = require('./product')
-  const getProduct = productModule.getProduct
+const productModule = require('./product')
+const getProduct = productModule.getProduct
 
-  module.exports = {
-    getProduct
-  }
+module.exports = {
+  getProduct
+}

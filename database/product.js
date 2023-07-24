@@ -4,20 +4,18 @@ const dynamoClient = new AWS.DynamoDB.DocumentClient()
 
 const PRODUCT = "product"
 
-// 마라톤 전체조회
+// 상품조회
 const getProduct = async () => {
     const params = {
-        TableName: PRODUCT
-    }
+      TableName: PRODUCT
+    };
+  
+      const list = await dynamoClient.scan(params).promise();
 
-    console.log(params)
+      return list;
 
-    const list = await dynamoClient.scan(params).promise()
 
-    console.log(list);
-
-    return list
-}
+  };
 
 module.exports = {
     getProduct
