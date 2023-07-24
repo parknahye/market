@@ -1,7 +1,5 @@
 const AWS = require('aws-sdk')
 
-require('dotenv').config()
-
 AWS.config.update({
     region: "ap-northeast-2",
     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
