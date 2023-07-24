@@ -2,7 +2,7 @@
     "family": "main_server_task_definition",
     "containerDefinitions": [
         {
-            "name": "main_server_container",
+            "name": "market_container",
             "image": "205360167779.dkr.ecr.ap-northeast-2.amazonaws.com/market:b4baee286736a0e50762aab26a1cfceb18a4f54a",
             "cpu": 0,
             "portMappings": [
