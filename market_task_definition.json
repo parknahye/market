@@ -39,8 +39,8 @@
             }
         }
     ],
-    "taskRoleArn": "arn:aws:iam::477644685304:role/ecsIAM",
-    "executionRoleArn": "arn:aws:iam::477644685304:role/ecsIAM",
+    "taskRoleArn": "arn:aws:iam::205360167779:role/ecs_task_IAM",
+    "executionRoleArn": "arn:aws:iam::205360167779:role/ecs_task_IAM",
     "networkMode": "awsvpc",
     "requiresCompatibilities": [
         "FARGATE"
