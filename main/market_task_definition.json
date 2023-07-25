@@ -3,7 +3,7 @@
     "containerDefinitions": [
         {
             "name": "market_container",
-            "image": "205360167779.dkr.ecr.ap-northeast-2.amazonaws.com/market:b4baee286736a0e50762aab26a1cfceb18a4f54a",
+            "image": "205360167779.dkr.ecr.ap-northeast-2.amazonaws.com/market_ecr:latest",
             "cpu": 0,
             "portMappings": [
                 {
@@ -39,8 +39,8 @@
             }
         }
     ],
-    "taskRoleArn": "arn:aws:iam::205360167779:role/ecsTaskExecutionRole",
-    "executionRoleArn": "arn:aws:iam::205360167779:role/ecsTaskExecutionRole",
+    "taskRoleArn": "arn:aws:iam::205360167779:role/ecsIAM",
+    "executionRoleArn": "arn:aws:iam::205360167779:role/ecsIAM",
     "networkMode": "awsvpc",
     "requiresCompatibilities": [
         "FARGATE"

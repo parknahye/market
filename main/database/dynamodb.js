@@ -8,7 +8,13 @@ AWS.config.update({
   
 const productModule = require('./product')
 const getProduct = productModule.getProduct
+const addProduct = productModule.addProduct
+const updateProduct = productModule.updateProduct
+const deleteProduct = productModule.deleteProduct
 
 module.exports = {
-  getProduct
+  getProduct,
+  addProduct,
+  updateProduct,
+  deleteProduct
 }

@@ -10,7 +10,7 @@ module.exports = {
 
 
 app.get('/', (req, res) => {
-    res.send('access key: ' + process.env.AWS_ACCESS_KEY_ID);
+    res.send('Hello World');
 });
 
 const productRouter = require('./routes/api/product/index')
