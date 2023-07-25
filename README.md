@@ -15,9 +15,11 @@
 
 ## 인프라 설명
 
->1. AutoScaling, ALB, CloudFront, Route53을 활용하여 가용성, 내결함성, 확장성, 보안성 확보
->2. GithubAction 을 통한 CI/CD
->3. NoSQL 인 DynamoDB 를 사용
+>1. AutoScaling 을 통한 가용성과 확장성 확보
+>2. ALB를 통한 내결함성과 보안성 확보
+>3. Route53을 사용하여 가용성과 확장성 확보
+>4. GithubAction 을 통한 CI/CD
+>5. NoSQL 인 DynamoDB 를 사용
 
 
 
