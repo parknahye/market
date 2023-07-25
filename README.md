@@ -1,11 +1,9 @@
 # market project
----
+
 
 ## 아키텍쳐
 
-![market_project_0 2](https://github.com/parknahye/market/assets/127065825/e24f96dd-706c-4005-86ab-14baa1f7c67d)
-
-
+![market_project_0 3](https://github.com/parknahye/market/assets/127065825/4ea6f0fc-9461-476a-9131-f321a6d1ad97)
 
 
 >1. 개발자가 새로운 버전을 릴리즈하면 GithubAction을 통하여 자동화 배포가 진행됩니다. 새로운 이미지를 빌드한 후 market_ecr이라는 레포지토리에 푸시한 후 service에 컨테이너를 자동으로 배포합니다.
@@ -22,7 +20,6 @@
 >3. NoSQL 인 DynamoDB 를 사용
 
 
----
 
 ## Install Dependencies
 
