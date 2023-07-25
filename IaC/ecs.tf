@@ -27,7 +27,8 @@ resource "aws_ecs_service" "market_service" {
 
   depends_on = [
     aws_lb_listener.market_elb_listener,
-    aws_iam_role_policy_attachment.ecs_task_execution_role_policy_attachment_1
+    aws_iam_role_policy_attachment.ecs_task_execution_role_policy_attachment_1,
+    aws_iam_role_policy_attachment.ecs_task_execution_role_policy_attachment_5
   ]
 
   lifecycle {
@@ -40,3 +41,35 @@ resource "aws_ecs_service" "market_service" {
 }
 
 
+
+resource "aws_appautoscaling_target" "ecs_target" {
+  min_capacity = 1
+  max_capacity = 2
+  resource_id = "service/new_market_cluster/market_service"
+  role_arn = aws_iam_role.ecsIAM.arn
+  scalable_dimension = "ecs:service:DesiredCount"
+  service_namespace = "ecs"
+
+  depends_on = [
+    aws_ecs_service.market_service
+  ]
+}
+
+resource "aws_appautoscaling_policy" "ecs_policy_scale_out" {
+  name = "scale-out"
+  policy_type = "StepScaling"
+  resource_id = aws_appautoscaling_target.ecs_target.resource_id
+  scalable_dimension = aws_appautoscaling_target.ecs_target.scalable_dimension
+  service_namespace = aws_appautoscaling_target.ecs_target.service_namespace
+
+  step_scaling_policy_configuration {
+    adjustment_type = "PercentChangeInCapacity"
+    cooldown = 1
+    metric_aggregation_type = "Average"
+
+    step_adjustment {
+      metric_interval_lower_bound = 0
+      scaling_adjustment = 50
+    }
+  }
+}
