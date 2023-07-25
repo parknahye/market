@@ -5,3 +5,4 @@ node_modules
 terraform.tfstate
 terraform.tfvars
 terraform.tfstate.backup
+.terraform.lock.hcl

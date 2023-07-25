@@ -1,5 +1,5 @@
 {
-    "family": "market_server_task_definition",
+    "family": "market_task_definition",
     "containerDefinitions": [
         {
             "name": "market_container",
